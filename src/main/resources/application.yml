@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: weather-adapter
+
+server:
+  port: 8081
+
+# Swagger/OpenAPI configuration
+springdoc:
+  api-docs:
+    path: /api-docs
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+    url: /api-docs
+
+# Weather API configuration
+weather:
+  api:
+    base-url: http://api.weatherapi.com
+    key: ${WEATHER_API_KEY:ddacdad06f6641a7834131114251509}
+
+# Backward compatibility
+weather-api-key: ${weather.api.key}

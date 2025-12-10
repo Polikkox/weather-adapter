@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mvn clean:*)",
+      "Bash(mvn:*)",
+      "Bash(del \"C:\\Users\\damian.targosz\\intelij-workspace\\weatherapp\\wheather-adapter\\src\\main\\java\\com\\weather\\weatheradapter\\ServletInitializer.java\")",
+      "Bash(find:*)",
+      "Bash(cat:*)",
+      "Bash(dir /s /b \"C:\\Users\\damian.targosz\\intelij-workspace\\weatherapp\\wheather-adapter\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

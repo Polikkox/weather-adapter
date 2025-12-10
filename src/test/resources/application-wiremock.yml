@@ -1,0 +1,30 @@
+# Test configuration for WireMock E2E tests
+spring:
+  application:
+    name: weather-adapter-test
+
+server:
+  port: 0  # Random port for tests
+
+# Override the weather API URL to point to WireMock
+weather:
+  api:
+    base-url: http://localhost:8089
+    key: test-api-key-12345
+
+# Disable SpringDoc for cleaner test output
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
+
+# Enable health endpoint for testing
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always

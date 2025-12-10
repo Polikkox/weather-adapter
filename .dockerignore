@@ -1,0 +1,51 @@
+# Maven build artifacts
+target/
+*.jar
+*.war
+*.ear
+
+# Maven wrapper
+.mvn/
+mvnw
+mvnw.cmd
+
+# IDE files
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.project
+.classpath
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Documentation (not needed in Docker image)
+*.md
+README*
+CLAUDE.md
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# Test coverage reports
+coverage/
+*.exec
+
+# Temporary files
+tmp/
+temp/
