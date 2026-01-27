@@ -1,0 +1,15 @@
+1. kubectl get pods
+2. kubectl logs -f deployment/<nazwa>r
+3. kubectl apply -f k8s/
+4. kubectl describe pod <nazwa>
+5. kubectl get all
+6. kubectl rollout restart deployment <nazwa>
+7. kubectl port-forward service/weather-adapter-service 8080:80
+8. kubectl get pods -w
+9. kubectl delete pod <nazwa>
+10. kubectl get services
+11. kubectl logs pod/<nazwa>
+12. kubectl delete deployment <nazwa>
+
+# Logi ze wszystkich podów z labelką app=weather-service
+kubectl logs -f -l app=weather-service --prefix=true

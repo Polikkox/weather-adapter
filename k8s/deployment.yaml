@@ -12,11 +12,13 @@ spec:
       labels:
         app: weather-adapter
     spec:
+      imagePullSecrets:
+        - name: ghcr-secret
       containers:
         - name: weather-adapter
           image: ghcr.io/polikkox/weather-adapter:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 8081
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: "production"
@@ -30,12 +32,15 @@ spec:
           livenessProbe:
             httpGet:
               path: /actuator/health
-              port: 8080
-            initialDelaySeconds: 30
+              port: 8081
+            initialDelaySeconds: 60
             periodSeconds: 10
+            failureThreshold: 3
           readinessProbe:
             httpGet:
               path: /actuator/health
-              port: 8080
-            initialDelaySeconds: 20
+              port: 8081
+            initialDelaySeconds: 45
             periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 3
