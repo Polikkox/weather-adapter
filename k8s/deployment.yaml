@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: weather-adapter
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: weather-adapter
@@ -12,22 +12,26 @@ spec:
       labels:
         app: weather-adapter
     spec:
-      imagePullSecrets:
-        - name: ghcr-secret
       containers:
         - name: weather-adapter
-          image: ghcr.io/polikkox/weather-adapter:latest
+          image: us-central1-docker.pkg.dev/weatherapp-gke/weather-service-repo/weather-adapter:1.0.0
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8081
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: "production"
+            - name: WEATHER_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: weather-adapter-secret
+                  key: WEATHER_API_KEY
           resources:
             requests:
-              memory: "512Mi"
-              cpu: "250m"
+              memory: "256Mi"
+              cpu: "50m"
             limits:
-              memory: "1Gi"
+              memory: "812Mi"
               cpu: "500m"
           livenessProbe:
             httpGet:

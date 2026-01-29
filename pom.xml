@@ -145,7 +145,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.weather.weatheradapter.WeatherAdapterApplication</mainClass>
+                    <mainClass>com.weather.weatheradapter.WeatherAdapterApplicationKt</mainClass>
                 </configuration>
 			</plugin>
 			<plugin>
